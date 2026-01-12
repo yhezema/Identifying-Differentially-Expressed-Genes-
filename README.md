@@ -4,8 +4,11 @@ In the current study, an experiment mimicking the industrial wine aging, Flor ye
 
 ## Methods
 * Data Acquisition: Three-time points with three biological replicates were used for RNAseq analysis of yeast strain I-329. The short reads (50-bp single-end-read) obtained from Illumina HiSeq 2500 (SRR9027083) and the genome of S. cerevisiae strain I-329 (GenBank PTER00000000) as a reference genome (RG) were used for downstream analysis.
+
 * Quality Control and Trimming: Firstly, fastp was used to perform to test quality control (QC) and trim low-quality bases from the front and tail with a minimum length of 36 bp.
+
 * Alignment and feature count: The trimmed reads were aligned to the pre-indexed reference genome using the STAR aligner. Gene expression quantification was performed using the Rsubread package in R. The featureCounts function, with the allow multi-overlap parameter, was used to count reads mapped to genomic features defined in the GTF annotation file.
+
 * Differential gene expression: Statistical analysis of differential expression was performed using the edgeR package and trimmed mean of M-values (TMM) was used to normalize the transcript counts (Luce et al., 2022). DEGs were identified based on a p-value threshold of ≤ 0.05 and a false discovery rate (FDR) threshold of ≤ 0.05, adjusted using the Benjamini–Hochberg method (Benjamini and Hochberg, 1995). The genes were considered significantly regulated when log2 fold change > 1 and FDR < 0.05. 
 
 <img width="518" height="447" alt="image" src="https://github.com/user-attachments/assets/c1ac3990-a410-41e6-828b-78b4353c4aad" />
